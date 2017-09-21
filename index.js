@@ -108,6 +108,9 @@ function bundle(b, opts) {
           self.push(file)
         })
         .on('end', next)
+        .on('error', function (e) {
+            self.emit('error', e)
+		    })
     }
   )
 }
